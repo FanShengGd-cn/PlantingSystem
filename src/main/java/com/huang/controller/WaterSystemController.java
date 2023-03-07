@@ -55,9 +55,6 @@ public class WaterSystemController {
         //需要显示一共查找了多少数据
         IPage<Water> page = new Page<>(pageNum, pageSize);
         QueryWrapper<Water> queryWrapper = new QueryWrapper<>();
-
-
-
         IPage<Water> waterIPage = waterSystemService.page(page, queryWrapper);
         return waterIPage;
     }

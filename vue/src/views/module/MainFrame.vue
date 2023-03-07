@@ -39,13 +39,8 @@
       <el-table-column prop="hopperHighLimit" label="防治措施" width="160" ></el-table-column>
       <el-table-column prop="hopperLowLimit" label="图片显示" width="250" >
         <template v-slot:default="scope">
-          <el-image
-                    :src="'data:image/png;base64,'+scope.row.hopperLowLimit">
-          </el-image>
+          <el-image :src="'data:image/png;base64,'+scope.row.hopperLowLimit"></el-image>
         </template>
-
-
-
       </el-table-column>
 
    <!-- <el-table-column prop="hopperTempSet" label="料斗高温设定" width="120" ></el-table-column>
