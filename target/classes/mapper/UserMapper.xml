@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huang.mapper.UserMapper">
+    <select id="findAll"  resultType="User">
+        select *from yunchun.sys_user;
+    </select>
+
+    <insert id="add" parameterType="User" >
+        insert into yunchun.sys_user(username, password, name, nickname, email, phone, address, role)
+        VALUES(#{username},#{password},#{name},#{nickname},#{email},#{phone},#{address},#{role});
+    </insert>
+
+    <update id="update" parameterType="User">
+        update  yunchun.sys_user
+        <set>
+         <if test="username!=null">
+             username = #{username},
+         </if>
+<!--            -->
+<!--         <if test="password!=null">-->
+<!--             password = #{password}-->
+<!--         </if>-->
+         <if test="name!=null">
+             name = #{name},
+         </if>
+         <if test="nickname!=null">
+             nickname= #{nickname},
+         </if>
+         <if test="email!=null">
+             email=#{email},
+         </if>
+         <if test="phone!=null">
+             phone=#{phone},
+         </if>
+         <if test="address!=null">
+             address=#{address},
+         </if>
+         <if test="role!=null">
+             role=#{role}
+         </if>
+        </set>
+        <where>
+            id= #{id}
+        </where>
+    </update>
+<!--按ID删除-->
+    <delete id="deleteById" parameterType="integer">
+         delete from yunchun.sys_user where id = #{id};
+    </delete>
+<!--分页-->
+<!--    <select id="selectPage" resultType="User">-->
+<!--        select *from yunchun.sys_user-->
+<!--                <where>-->
+<!--                <if test="username!=null and username!=''">-->
+<!--                     username like concat('%',#{username},'%')-->
+<!--                </if>-->
+<!--                <if test="email!=null and email!=''">-->
+<!--                    and  email like concat('%',#{email},'%')-->
+<!--                </if>-->
+<!--                <if test="address!=null and address!=''">-->
+<!--                    and  address like concat('%',#{address},'%')-->
+<!--                </if>-->
+<!--                </where>-->
+<!--               limit #{pageNum},#{pageSize}-->
+<!--    </select>-->
+
+
+    <select id="selectTotal" resultType="integer" >
+        select count(*) from yunchun.sys_user
+                   <where>
+                       <if test="username!=null and username!=''">
+                           username like  concat('%',#{username},'%')
+                       </if>
+                        <if test="email!=null and email!=''">
+                            and email like concat('%',#{email},'%')
+                        </if>
+                        <if test="address!=null and address!=''">
+                            and address like concat('%',#{address},'%')
+                        </if>
+                   </where>
+    </select>
+
+</mapper>
