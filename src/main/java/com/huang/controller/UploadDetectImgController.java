@@ -21,6 +21,7 @@ public class UploadDetectImgController {
 
     @PostMapping("/uploadDetectImg")
     public boolean uploadDetectImg(@RequestBody MultipartFile file){
+        // 调用saveImgServices的保存图片方法，成功则返回新文件名，失败为null
         String newFileName = saveImgServices.checkImg(file);
         System.out.println(newFileName);
         return true;
