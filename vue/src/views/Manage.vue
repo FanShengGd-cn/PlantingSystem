@@ -1,29 +1,29 @@
 <template>
-<div style="height: 100%">
+<div style="height: 100vh">
   <el-container style="height: 100%; ">
 
-<!--  aside侧边栏  -->
+    <!--  aside侧边栏  -->
     <el-aside :width="sideWidth+'px'" style="background-color: rgb(238, 241, 246);">
-      <Aside :is-collapse="isCollapse" :logo-text-show="logoTextShow" style="height: 900px"></Aside>
-<!--actice-text-color 高亮文本是黄色
-    collpase-transition 菜单动画
- -->
-<!--      <el-menu :default-openeds="['1', '3']" style="height: 100%;overflow-x: hidden "-->
-<!--               background-color="rgb(48,65,86)"-->
-<!--               text-color="#fff"-->
-<!--               active-text-color="#ffd04b"-->
-<!--               :collapse-transition="false"-->
-<!--               :collapse="isCollapse"-->
-<!--      >-->
+      <Aside :is-collapse="isCollapse" :logo-text-show="logoTextShow" style="height: 100%"></Aside>
+      <!--actice-text-color 高亮文本是黄色
+          collpase-transition 菜单动画
+       -->
+      <!--      <el-menu :default-openeds="['1', '3']" style="height: 100%;overflow-x: hidden "-->
+      <!--               background-color="rgb(48,65,86)"-->
+      <!--               text-color="#fff"-->
+      <!--               active-text-color="#ffd04b"-->
+      <!--               :collapse-transition="false"-->
+      <!--               :collapse="isCollapse"-->
+      <!--      >-->
 
-<!--        <div style="height: 60px;line-height: 60px;text-align: center">-->
-<!--           <img src="../assets/logo.png" alt="" style="width:20px;position: relative;top:5px;margin-right: 5px">-->
-<!--           <b style="color: white" v-show="logoTextShow">云春后台管理系统</b>-->
-<!--        </div>-->
+      <!--        <div style="height: 60px;line-height: 60px;text-align: center">-->
+      <!--           <img src="../assets/logo.png" alt="" style="width:20px;position: relative;top:5px;margin-right: 5px">-->
+      <!--           <b style="color: white" v-show="logoTextShow">云春后台管理系统</b>-->
+      <!--        </div>-->
 
-<!--        <el-submenu index="1">-->
-<!--          <template slot="title"><i class="el-icon-message"></i>-->
-<!--            <span slot="title">导航一</span>-->
+      <!--        <el-submenu index="1">-->
+      <!--          <template slot="title"><i class="el-icon-message"></i>-->
+      <!--            <span slot="title">导航一</span>-->
 
 <!--          </template>-->
 <!--          <el-menu-item-group>-->
@@ -301,9 +301,9 @@ export default {
         this.collapseBtnClass = 'el-icon-s-unfold';
         this.logoTextShow= false;
       }else {//展开
-        this.sideWidth = 200;
-        this.logoTextShow= true;
-        this.collapseBtnClass= 'el-icon-s-fold'
+        this.sideWidth = 300;
+        this.logoTextShow = true;
+        this.collapseBtnClass = 'el-icon-s-fold'
       }
     },
     load(){

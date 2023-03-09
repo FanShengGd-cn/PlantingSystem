@@ -10,16 +10,16 @@ import java.util.UUID;
 
 @Service
 public class SaveImgServices {
-    public String checkImg(MultipartFile file){
+    public String saveImg(MultipartFile file) {
 //        file.
-        if(file.isEmpty()){
+        if (file.isEmpty()) {
             System.out.println("上传文件为空");
             return null;
         }
         String[] nameSplit = file.getOriginalFilename().split("\\.");
-        String newFileName = UUID.randomUUID().toString()+"."+nameSplit[1];
+        String newFileName = UUID.randomUUID().toString() + "." + nameSplit[1];
         String fileUploadDir = "file";
-        File fileTemp = new File(fileUploadDir +"/"+newFileName);
+        File fileTemp = new File(fileUploadDir + "/" + newFileName);
 
         //检测目录是否存在
         if(!fileTemp.getParentFile().exists()){
